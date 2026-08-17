@@ -2,6 +2,13 @@
 
 Welcome to **Dine Data Insights**, a comprehensive PostgreSQL analysis project focused on understanding food delivery and restaurant operation patterns. This repository explores data across three main domains: **Customers**, **Orders**, and **Restaurants**.
 
+## 👨‍💻 Author
+**Pranith Kumar**
+GitHub: https://github.com/pranithkumar11
+LinkedIn: https://www.linkedin.com/in/praneethkumar-dupuguntla-48721a237/
+
+
+
 ---
 
 ## 📁 Repository Structure
@@ -74,3 +81,7 @@ Create a new database named dine_insights.
 First execute schema/01_create_tables.sql to initialize all database tables.
 
 Execute the SQL scripts inside queries/ (from 02 through 06) sequentially to perform the data analysis.
+
+
+
+⭐ If you found this project useful, please consider giving it a star!
