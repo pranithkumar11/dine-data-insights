@@ -1,3 +1,4 @@
+In Progress
 # 🍽️ Dine Data Insights — End-to-End SQL Data Analysis
 
 Welcome to **Dine Data Insights**, a comprehensive PostgreSQL analysis project focused on understanding food delivery and restaurant operation patterns. This repository explores data across three main domains: **Customers**, **Orders**, and **Restaurants**.
