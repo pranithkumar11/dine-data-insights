@@ -1,0 +1,94 @@
+// 1. Total Revenue
+Total revenue = 
+SUM('public orders'[orders_amounts])
+
+// 2. Total Orders
+Total Orders = 
+COUNTROWS('public orders')
+
+// 3. Average Order Value
+Average Order Value = 
+DIVIDE([Total revenue], [Total Orders], 0)
+
+// 4. Active Customers
+Active Customers = 
+DISTINCTCOUNT('public orders'[customer_id])
+
+// 5. Last Order Date
+Last Order Date = 
+MAX('public orders'[orders_date])
+
+// 6. Active Duration Days
+Active Duration Days = 
+DATEDIFF(
+    MIN('public orders'[orders_date]), 
+    MAX('public orders'[orders_date]), 
+    DAY
+)
+
+// 7. Completed Orders
+Completed Orders = 
+CALCULATE(
+    COUNTROWS('public orders'),
+    'public orders'[orders_status] = "Completed"
+)
+
+// 8. countPaymeth
+countPaymeth = 
+DISTINCTCOUNT('public orders'[paymeth_method])
+
+// 9. Total Visits
+Total Visits = 
+DISTINCTCOUNT('public orders'[orders_id])
+
+// 10. Top City Name
+Top City Name = 
+TOPN(
+    1, 
+    VALUES('public restaurant'[city]), 
+    [Total revenue], 
+    DESC
+)
+
+// 11. Top City Revenue
+Top City Revenue = 
+CALCULATE(
+    [Total revenue],
+    TOPN(
+        1, 
+        ALL('public restaurant'[city]), 
+        [Total revenue], 
+        DESC
+    )
+)
+
+// 12. Top Revenue Generating Restaurant
+Top Revenue Generating Restaurant = 
+TOPN(
+    1, 
+    VALUES('public restaurant'[restaurant_name]), 
+    [Total revenue], 
+    DESC
+)
+
+// 13. Most Popular Payment Method
+Most Popular Payment Method = 
+TOPN(
+    1, 
+    VALUES('public orders'[paymeth_method]), 
+    [Total Orders], 
+    DESC
+)
+
+// 14. Busiest Month
+Busiest Month = 
+TOPN(
+    1, 
+    VALUES('public orders'[orders_date].[Month]), 
+    [Total Orders], 
+    DESC
+)
+
+// 15. Business Day
+Business Day = 
+FORMAT(MAX('public orders'[orders_date]), "DDD")
